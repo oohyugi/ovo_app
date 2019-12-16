@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovo_app/helper.dart';
 import 'package:ovo_app/home_page.dart';
 
 void main() => runApp(MyApp());
@@ -11,8 +12,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-        primaryColor: Colors.green,
+
+        primaryColor: HexColor("#01579b"),
+        primaryColorDark: HexColor("#002f6c"),
+        primaryColorLight: HexColor("#4f83cc"),
       ),
       home: HomePage(),
     );
