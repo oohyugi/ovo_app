@@ -23,6 +23,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  flutter_svg: ^0.15.0
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +46,17 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
+  assets:
+    - assets/icons/ic_pulsa.png
+    - assets/icons/ic_bpjs.png
+    - assets/icons/ic_pln.png
+    - assets/icons/ic_inet.png
+    - assets/icons/ic_more.png
+    - assets/icons/ic_pascabayar.png
+    - assets/icons/ic_pdam.png
+    - assets/icons/ic_streaming.png
+    - assets/icons/ic_tv_kabel.png
+    - assets/icons/ic_scan_qr.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -70,3 +82,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Lovina
+      fonts:
+        - asset: fonts/BeautifulLovina-Regular.ttf
+    - family: CoralPen
+      fonts:
+        - asset: fonts/CoralPen.ttf
+    - family: Campton_Light
+      fonts:
+        - asset: fonts/Campton_Light.ttf

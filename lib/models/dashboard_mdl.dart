@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class DashboardMdl {
   int id;
   String title;
-  IconData icon;
+  String icon;
 
   static DashboardMdl fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
@@ -15,7 +15,7 @@ class DashboardMdl {
   }
 
 
-  static DashboardMdl fromValue({int id, String title,IconData icon}) {
+  static DashboardMdl fromValue({int id, String title,String icon}) {
     DashboardMdl dashboardMdlBean = DashboardMdl();
     dashboardMdlBean.id = id;
     dashboardMdlBean.title = title;
