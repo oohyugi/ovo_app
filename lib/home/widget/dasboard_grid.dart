@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ovo_app/models/dashboard_mdl.dart';
+import 'package:ovo_app/ppob/order_page.dart';
 import 'package:ovo_app/utils/helper.dart';
 import 'package:ovo_app/utils/icon_assets.dart';
 
@@ -15,13 +16,13 @@ class DasboardGrid extends StatelessWidget {
 List<DashboardMdl> _initDataDasboard() {
   List<DashboardMdl> mListDasboard = List();
   mListDasboard.add(
-      DashboardMdl.fromValue(id: 1, title: "PLN", icon: IconAssets.iconPln));
+      DashboardMdl.fromValue(id: 1, title: "PLN", icon: IconAssets.iconPln,hintText: "No. Meter"));
   mListDasboard.add(DashboardMdl.fromValue(
-      id: 1, title: "Pulsa", icon: IconAssets.iconPulsa));
+      id: 1, title: "Pulsa", icon: IconAssets.iconPulsa,hintText: "Phone Number"));
   mListDasboard.add(DashboardMdl.fromValue(
-      id: 1, title: "Paket Data", icon: IconAssets.iconInet));
+      id: 1, title: "Paket Data", icon: IconAssets.iconInet,hintText: "Phone Number"));
   mListDasboard.add(DashboardMdl.fromValue(
-      id: 1, title: "Pasca Bayar", icon: IconAssets.iconPascabayar));
+      id: 1, title: "Pasca Bayar", icon: IconAssets.iconPascabayar,hintText: "Phone Number"));
   mListDasboard.add(
       DashboardMdl.fromValue(id: 1, title: "BPJS", icon: IconAssets.iconBpjs));
   mListDasboard.add(DashboardMdl.fromValue(
@@ -45,7 +46,10 @@ _dashboarMenuView(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => OrderPage(titleBar: _initDataDasboard()[index].title,hintText: _initDataDasboard()[index].hintText,)));
+                },
                 child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),

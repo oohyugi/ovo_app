@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 class DashboardMdl {
   int id;
   String title;
+  String hintText;
   String icon;
 
   static DashboardMdl fromMap(Map<String, dynamic> map) {
@@ -15,11 +16,12 @@ class DashboardMdl {
   }
 
 
-  static DashboardMdl fromValue({int id, String title,String icon}) {
+  static DashboardMdl fromValue({int id, String title,String icon,String hintText}) {
     DashboardMdl dashboardMdlBean = DashboardMdl();
     dashboardMdlBean.id = id;
     dashboardMdlBean.title = title;
     dashboardMdlBean.icon = icon;
+    dashboardMdlBean.hintText = hintText;
     return dashboardMdlBean;
   }
   Map toJson() => {

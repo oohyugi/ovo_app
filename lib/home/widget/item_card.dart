@@ -1,35 +1,66 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class ItemCard extends StatelessWidget {
+class ItemCardView extends StatefulWidget {
+
+  ItemCardView({Key key, }) : super(key: key);
+
+  @override
+  _ItemCardViewState createState() {
+    return _ItemCardViewState();
+  }
+}
+
+class _ItemCardViewState extends State<ItemCardView> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Container(
       height: 200.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
+        padding: EdgeInsets.only(left: 14,right: 14),
         itemBuilder: (context, index) {
-           return Padding(
-            padding: const EdgeInsets.only(left: 14),
+          return Card(
+            elevation: 0,
+            color: Colors.transparent,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
                   width: MediaQuery.of(context).size.width / 2.5,
-                  height: 200/1.3,
+                  height: 200/1.5,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6.0),
+                      borderRadius: BorderRadius.circular(12.0),
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(
-                              "https://images-loyalty.ovo.id/public/deal/31/95/l/25239.jpg?ver=1"))),
+                          image: CachedNetworkImageProvider(
+                              "https://pbs.twimg.com/media/D3J321iU8AEgSU0.jpg"))),
                 ),
-                Text("Warung 1",style: Theme.of(context).textTheme.body2),
+                SizedBox(height: 4.0,),
+                SizedBox(width:MediaQuery.of(context).size.width / 2.5,child: Text("CVG Transmart Cempaka Putih",style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold))),
+                Text("0.56 km",style: TextStyle(fontSize: 12)),
               ],
             ),
+
           );
         },
       ),
     );
   }
 }
+

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ovo_app/home/home_page.dart';
 import 'package:ovo_app/utils/icon_assets.dart';
+import 'package:barcode_scan/barcode_scan.dart';
+import 'package:flutter/services.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -13,7 +15,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPagesState extends State<MainPage> {
 
-  String _lastSelected = 'TAB: 0';
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
@@ -23,6 +24,7 @@ class _MainPagesState extends State<MainPage> {
 
   ];
 
+  String barcode = "";
   @override
   void initState() {
     super.initState();
@@ -35,10 +37,32 @@ class _MainPagesState extends State<MainPage> {
 
   void _selectedTab(int index) {
     setState(() {
-      _lastSelected = 'TAB: $index';
+
       _selectedIndex = index;
       print(index);
     });
+  }
+  Future scan() async {
+    try {
+      String barcode = await BarcodeScanner.scan();
+      setState(() {
+        this.barcode = barcode;
+        print(barcode);
+        });
+    } on PlatformException catch (e) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
+        setState(() {
+          this.barcode = 'The user did not grant the camera permission!';
+        });
+      } else {
+        setState(() => this.barcode = 'Unknown error: $e');
+      }
+    } on FormatException {
+      setState(() => this.barcode =
+      'null (User returned using the "back"-button before scanning anything. Result)');
+    } catch (e) {
+      setState(() => this.barcode = 'Unknown error: $e');
+    }
   }
 
   @override
@@ -84,7 +108,9 @@ class _MainPagesState extends State<MainPage> {
         )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+           scan();
+          },
           child: Image.asset(
             IconAssets.iconScanQr,
             width: 24,
@@ -94,7 +120,7 @@ class _MainPagesState extends State<MainPage> {
         ),
         bottomNavigationBar: FaBottomAppbar(
           notchedShape: CircularNotchedRectangle(),
-          color: Colors.black12,
+          color: Colors.black45,
           selectedColor: Theme.of(context).accentColor,
           onTabSelected: _selectedTab,
           items: [
@@ -179,6 +205,7 @@ class _FaBottomAppbarState extends State<FaBottomAppbar> {
   Widget _buildTabItem(
       {FABBottomAppBarItem item, int index, ValueChanged<int> onPressed}) {
     Color color = _selectedIndex == index ? widget.selectedColor : widget.color;
+    FontWeight fontWeight = _selectedIndex == index ? FontWeight.bold: FontWeight.normal;
     return Expanded(
         child: SizedBox(
       height: 60,
@@ -199,7 +226,7 @@ class _FaBottomAppbarState extends State<FaBottomAppbar> {
               ),
               Text(
                 item.text,
-                style: TextStyle(color: color,fontSize: 12),
+                style: TextStyle(color: color,fontSize: 12,fontWeight: fontWeight),
               )
             ],
           ),
@@ -220,7 +247,7 @@ class _FaBottomAppbarState extends State<FaBottomAppbar> {
             children: <Widget>[
               SizedBox(height: 24),
               Text(
-                'Scan',style: TextStyle(fontSize: 12,color: Colors.black12),
+                'Scan',style: TextStyle(fontSize: 12,color: Colors.black45),
               ),
             ],
           ),
@@ -228,4 +255,7 @@ class _FaBottomAppbarState extends State<FaBottomAppbar> {
       ),
     );
   }
+
+
 }
+

@@ -53,7 +53,7 @@ class AppbarBalance extends SliverPersistentHeaderDelegate {
                           style: TextStyle(color: Colors.white),
                         ),
                         Text(
-                          "1000.000",
+                          "1.000.000",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 24.0,

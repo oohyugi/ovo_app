@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ItemBanner extends StatelessWidget {
@@ -17,7 +18,7 @@ class ItemBanner extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14.0),
                   image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage(
+                      image: CachedNetworkImageProvider(
                           "https://images-loyalty.ovo.id/public/deal/31/95/l/25239.jpg?ver=1"))),
             ),
           );
