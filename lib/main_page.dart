@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ovo_app/home/home_page.dart';
+import 'package:ovo_app/payment_confirm/payment_confirm_page.dart';
 import 'package:ovo_app/utils/icon_assets.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
@@ -47,6 +48,7 @@ class _MainPagesState extends State<MainPage> {
       String barcode = await BarcodeScanner.scan();
       setState(() {
         this.barcode = barcode;
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentConfirmPage()));
         print(barcode);
         });
     } on PlatformException catch (e) {

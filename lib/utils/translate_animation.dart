@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CloningAnimation extends StatefulWidget {
-  CloningAnimation(
-      {Key key,
-      this.size,
-      this.itemBuilder})
+class TranslateAnimation extends StatefulWidget {
+  TranslateAnimation(
+      {Key key, this.child,})
       : super(key: key);
 
-  final double size;
-  final IndexedWidgetBuilder itemBuilder;
+  final Widget child;
 
   @override
-  _CloningAnimationState createState() {
-    return _CloningAnimationState();
+  _TranslateAnimationState createState() {
+    return _TranslateAnimationState();
   }
 }
 
-class _CloningAnimationState extends State<CloningAnimation>
+class _TranslateAnimationState extends State<TranslateAnimation>
     with TickerProviderStateMixin {
   Animation _animation;
   AnimationController _animationController;
@@ -58,13 +55,8 @@ class _CloningAnimationState extends State<CloningAnimation>
             builder: (context, child) {
               return Transform(
                   transform: Matrix4.translationValues(
-                      _animation.value *2, 0.0, 0.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: Colors.white
-                    ),
-                      child: Icon(Icons.navigate_next,color: Theme.of(context).primaryColor,size: 18,)));
+                      _animation.value *10, 0.0, 0.0),
+                  child: widget.child);
             }),
 
       ],

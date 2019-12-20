@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovo_app/topup/topup_saldo_page.dart';
 
 class AppbarBalance extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
@@ -25,7 +26,7 @@ class AppbarBalance extends SliverPersistentHeaderDelegate {
                   bottom: Radius.elliptical(
                       MediaQuery.of(context).size.width, 75 - shrinkOffset))),
           child: Opacity(
-            opacity: (1 - shrinkOffset / (expandedHeight)),
+            opacity: (1),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -72,7 +73,7 @@ class AppbarBalance extends SliverPersistentHeaderDelegate {
           left: 14,
           right: 14,
           child: Opacity(
-            opacity: (1 - shrinkOffset / expandedHeight),
+            opacity: (1),
             child: Card(
               elevation: 4.0,
               child: Container(
@@ -82,23 +83,30 @@ class AppbarBalance extends SliverPersistentHeaderDelegate {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            Icons.add_circle_outline,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            "Top Up",
-                            style: TextStyle(fontSize: 12.0),
-                          )
-                        ],
-                      ),
+                      InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TopupSaldoPage()));
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(
+                                Icons.add_circle_outline,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                "Top Up",
+                                style: TextStyle(fontSize: 12.0),
+                              )
+                            ],
+                          )),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -121,14 +129,14 @@ class AppbarBalance extends SliverPersistentHeaderDelegate {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Icon(
-                            Icons.history,
+                            Icons.card_membership,
                             color: Theme.of(context).primaryColor,
                           ),
                           SizedBox(
                             height: 4,
                           ),
                           Text(
-                            "History",
+                            "Voucher",
                             style: TextStyle(fontSize: 12.0),
                           )
                         ],

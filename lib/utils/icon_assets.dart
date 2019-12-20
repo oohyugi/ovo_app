@@ -10,4 +10,7 @@ class IconAssets{
   static String iconStreaming = "assets/icons/ic_streaming.png";
   static String iconTvkable = "assets/icons/ic_tv_kabel.png";
   static String iconScanQr = "assets/icons/ic_scan_qr.png";
+  static String iconBank = "assets/icons/bank.png";
+  static String iconCreditCard = "assets/icons/credit_card.png";
+  static String iconShop = "assets/icons/shop.png";
 }
