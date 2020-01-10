@@ -14,7 +14,7 @@ class TopupSaldoPage extends StatelessWidget {
       appBar: AppBar(title: Text("Topup"),
       centerTitle: false,),
       body: Container(
-        margin: EdgeInsets.all(16),
+        margin: EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView.builder(itemBuilder: (context,index){
 
 

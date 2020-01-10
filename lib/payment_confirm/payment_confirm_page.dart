@@ -4,6 +4,7 @@ import 'package:ovo_app/utils/icon_assets.dart';
 
 class PaymentConfirmPage extends StatelessWidget {
   PaymentConfirmPage({Key key}) : super(key: key);
+  int _state = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,8 @@ class PaymentConfirmPage extends StatelessWidget {
                           Text(
                             "PAYABLE AMOUNT",
                             style: TextStyle(
-                                color: Colors.black38, fontWeight: FontWeight.bold),
+                                color: Colors.black38,
+                                fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
                             height: 24,
@@ -95,7 +97,8 @@ class PaymentConfirmPage extends StatelessWidget {
                                 "Atlas Payments",
                                 style: TextStyle(fontWeight: FontWeight.w700),
                               ),
-                              contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 0.0),
                             ),
                           ],
                         ),
@@ -120,7 +123,8 @@ class PaymentConfirmPage extends StatelessWidget {
                                       "Terms & Conditions",
                                       style: TextStyle(
                                           fontSize: 12,
-                                          color: Theme.of(context).primaryColor),
+                                          color:
+                                              Theme.of(context).primaryColor),
                                     ),
                                   ],
                                 ),
@@ -132,8 +136,9 @@ class PaymentConfirmPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 16,),
-
+                SizedBox(
+                  height: 16,
+                ),
               ],
             ),
             Positioned(
@@ -142,33 +147,41 @@ class PaymentConfirmPage extends StatelessWidget {
               left: 0,
               child: Container(
                 color: Colors.white,
-                child:Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Icon(
-                            Icons.payment,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            "StickPay",
-                            style: TextStyle(
+                          Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.payment,
                                 color: Theme.of(context).primaryColor,
-                                fontWeight: FontWeight.bold),
-                          )
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                "StickPay",
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          Icon(Icons.more_vert)
                         ],
                       ),
-
-                    ],
-                  ),
-                ) ,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 16, right: 16, bottom: 16),
+                      child: _checkoutButton(context),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
@@ -176,5 +189,41 @@ class PaymentConfirmPage extends StatelessWidget {
       ),
     );
   }
-}
 
+  Container _checkoutButton(BuildContext context) {
+    return Container(
+        width: MediaQuery.of(context).size.width,
+        child: MaterialButton(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text("Bayar"),
+                Row(
+                  children: <Widget>[
+                    Text("Rp 50"),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(24),
+                            color: Colors.white),
+                        child: Icon(
+                          Icons.navigate_next,
+                          color: Theme.of(context).primaryColor,
+                          size: 18,
+                        )),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          color: Theme.of(context).primaryColor,
+          textColor: Colors.white,
+        ));
+  }
+}

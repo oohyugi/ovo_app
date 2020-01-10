@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         SliverPadding(
             padding: EdgeInsets.only(top: 56), sliver: DasboardGrid()),
         ListItem(title: "CashBack Bikin Melek",subtitle: "",itemChild: ItemBanner(),),
-        FlashDealListView(backgroundImage: "https://malindoholidays.s3.amazonaws.com/landing/ODH-flashsalenov-landing.jpg",title: "Flash Sale",subtitle: "01 : 28 : 23",subtitleColor: HexColor("#d81b60"),subtitleFontWeight: FontWeight.bold,),
+        FlashDealListView(backgroundImage: "https://malindoholidays.s3.amazonaws.com/landing/ODH-flashsalenov-landing.jpg",title: "Flash Sale",subtitle: "01 : 28 : 23",subtitleColor: Theme.of(context).primaryColor,subtitleFontWeight: FontWeight.bold,),
         ListItem(title: "Merchant Didekat Kamu",subtitle: "Ada banyak merchant menarik di sekitar kamu yang harus dicobain. Cek sekarang, yuk!",itemChild: ItemCardView(),),
 
       ],
@@ -91,7 +91,7 @@ class ListItem extends StatelessWidget {
                     ),
                   )),
               Padding(
-                padding:  EdgeInsets.only(top: 14.0,left: paddingLeftChild),
+                padding:  EdgeInsets.only(top: 16.0,left: paddingLeftChild),
                 child: itemChild,
               )
             ],

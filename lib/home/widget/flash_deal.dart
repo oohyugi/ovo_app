@@ -167,11 +167,12 @@ class _FlashDealListViewState extends State<FlashDealListView> {
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width / 2, right: 14),
+              left: MediaQuery.of(context).size.width / 2, right: 16.0),
           itemBuilder: (context, index) {
             return Card(
               elevation: 0,
               color: Colors.transparent,
+              margin: EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -181,7 +182,7 @@ class _FlashDealListViewState extends State<FlashDealListView> {
                     children: <Widget>[
                       Container(
                         width: MediaQuery.of(context).size.width / 2.6,
-                        height: (MediaQuery.of(context).size.height / 3.4) / 2,
+                        height: (MediaQuery.of(context).size.height / 3.4) / 1.7,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12.0),

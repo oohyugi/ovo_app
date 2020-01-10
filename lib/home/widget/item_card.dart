@@ -31,11 +31,12 @@ class _ItemCardViewState extends State<ItemCardView> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
-        padding: EdgeInsets.only(left: 14,right: 14),
+        padding: EdgeInsets.only(left: 16,right: 16),
         itemBuilder: (context, index) {
           return Card(
             elevation: 0,
             color: Colors.transparent,
+            margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

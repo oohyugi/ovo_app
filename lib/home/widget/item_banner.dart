@@ -9,11 +9,15 @@ class ItemBanner extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
+        padding: EdgeInsets.only(left: 16,right: 16),
+
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(left: 14),
+          return Card(
+            color: Colors.transparent,
+            elevation: 0,
+            margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: Container(
-              width: MediaQuery.of(context).size.width / 1.2,
+              width: MediaQuery.of(context).size.width / 1.3,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14.0),
                   image: DecorationImage(
